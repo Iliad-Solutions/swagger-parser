@@ -1261,5 +1261,15 @@ public class SwaggerParserTest {
         assertEquals("k-definition", definitions.get("k_2").getTitle());
     }
 
+    @Test
+    public void testIssue1552() {
+        Swagger swagger = new SwaggerParser().read("src/test/resources/issue1552.yaml");
+
+        Assert.assertNotNull(swagger);
+        Assert.assertNotNull(swagger.getResponses().get("Response"));
+        Assert.assertNotNull(swagger.getResponses().get("Response").getResponseSchema().getProperties());
+        Assert.assertNotNull(swagger.getResponses().get("Response").getResponseSchema().getProperties().get("Report"));
+
+    }
 
 }
