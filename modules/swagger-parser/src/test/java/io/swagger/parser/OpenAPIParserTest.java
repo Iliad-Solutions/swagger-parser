@@ -636,6 +636,7 @@ public class OpenAPIParserTest {
         assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json"));
         assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema());
         assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema().getProperties());
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema().getProperties().get("Report"));
     }
 
 }
