@@ -624,5 +624,20 @@ public class OpenAPIParserTest {
         BigDecimal multipleOf = decimalValue.getMultipleOf();
         assertEquals(multipleOf, new BigDecimal("0.3", new MathContext(multipleOf.precision())));
     }
+
+    @Test
+    public void testIssue1552(){
+        ParseOptions options = new ParseOptions();
+        options.setResolve(true);
+        SwaggerParseResult result = new OpenAPIParser().readLocation("issue1552.yaml",null,options);
+        assertNotNull(result.getOpenAPI());
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response"));
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent());
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json"));
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema());
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema().getProperties());
+        assertNotNull(result.getOpenAPI().getComponents().getResponses().get("Response").getContent().get("application/json").getSchema().getProperties().get("Report"));
+    }
+
 }
 
