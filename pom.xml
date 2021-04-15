@@ -41,6 +41,16 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>https://nexus.iliad-solutions.com/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>https://nexus.iliad-solutions.com/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
     <build>
         <defaultGoal>install</defaultGoal>
         <resources>
